@@ -3,7 +3,7 @@ const app = express_app();
 const dotenv = require('dotenv');
 dotenv.config();
 const morgan = require('morgan');
-const rutas = require('./rutas.ts');
+const rutas = require('./rutas');
 
 // Middlewares
 app.use(morgan('dev'));
