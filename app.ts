@@ -1,5 +1,5 @@
-import express from 'express';
-const app = express();
+const express_app = require('express');
+const app = express_app();
 const dotenv = require('dotenv');
 dotenv.config();
 const morgan = require('morgan');
@@ -7,8 +7,8 @@ const rutas = require('./rutas.ts');
 
 // Middlewares
 app.use(morgan('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express_app.json());
+app.use(express_app.urlencoded({ extended: true }));
 
 // Routes
 app.use(rutas);
