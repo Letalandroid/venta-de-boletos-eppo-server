@@ -1,8 +1,8 @@
-import { Router, Request, Response } from 'express';
+const express = require('express');
 const nodemailer = require('nodemailer');
-const ruta = Router();
+const ruta = express.Router();
 
-ruta.post('/', (req: Request, res: Response) => {
+ruta.post('/', (req: any, res: any) => {
 	const transporter = nodemailer.createTransport({
 		host: 'smtp.gmail.com',
 		port: 587,
