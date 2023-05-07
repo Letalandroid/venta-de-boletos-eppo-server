@@ -11,6 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use(rutas);
+// app.use(rutas);
 
 module.exports = app;
