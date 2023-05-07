@@ -103,6 +103,5 @@
   "files": [
     "index.ts",
     "app.ts",
-    "rutas.ts"
   ]
 }

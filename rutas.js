@@ -13,7 +13,7 @@ ruta.post('/', (req, res) => {
 		tls: { rejectUnauthorized: false },
 	});
 
-	transporter.verify(function (error: Error) {
+	transporter.verify(function (error) {
 		if (error) {
 			console.log(error);
 		} else {
@@ -42,7 +42,7 @@ ruta.post('/', (req, res) => {
 			<img src='${process.env.CLIENT}/eppo_logo.png' alt='' />`,
 		};
 
-		transporter.sendMail(mailOptions, (error: Error) => {
+		transporter.sendMail(mailOptions, (error) => {
 			error ? console.log(error) : console.log('📨 Correo enviado. 📫');
 		});
 	} else {
