@@ -3,11 +3,11 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 // const morgan = require('morgan');
-const rutas = require('./rutas.js');
+const ruta = require('./rutas.js');
 
 // Middlewares
 // app.use(morgan('dev'));
-app.use(rutas);
+app.use(ruta);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
