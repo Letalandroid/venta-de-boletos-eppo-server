@@ -1,5 +1,5 @@
-const index = require('./app.js');
+const app = require('./app.js');
 
-index.listen(5000, () => {
+app.listen(5000, () => {
 	console.log('🚀 Server on port 5000');
 });
