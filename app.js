@@ -3,14 +3,12 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 // const morgan = require('morgan');
-const rutas = require('./rutas');
+const rutas = require('./rutas.js');
 
 // Middlewares
 // app.use(morgan('dev'));
+app.use(rutas);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Routes
-// app.use(rutas);
 
 module.exports = app;
