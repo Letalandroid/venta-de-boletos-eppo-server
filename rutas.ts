@@ -22,10 +22,9 @@ ruta.post('/', (req: Request, res: Response) => {
 	});
 
 	const { email, name, dni, salida, destino } = req.body;
+	const nBoleto = Math.round(Math.random() * 999);
 
 	if (email && name && dni && salida && destino) {
-		const nBoleto = Math.round(Math.random() * 999);
-
 		const mailOptions = {
 			from: process.env.AUTH_USER,
 			to: email,
@@ -44,14 +43,51 @@ ruta.post('/', (req: Request, res: Response) => {
 		};
 
 		transporter.sendMail(mailOptions, (error: Error) => {
-			error ? console.log(error) : console.log('Email enviado');
-			res.redirect('/');
+			error ? console.log(error) : console.log('📨 Correo enviado. 📫');
 		});
 	} else {
 		console.log('¡Datos incompletos!');
 	}
 
-	res.redirect(`${process.env.CLIENT}`);
+	res.send(
+		`<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			p {
+				margin: 15px;
+			}
+
+			div {
+				margin: 0;
+				padding: 0;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				font-size: 24px;
+				font-family: Arial;
+				text-align: center;
+				padding: 0 400px;
+				color: #fff;
+				background: red;
+			}
+		</style>
+
+		<div>
+			<p>¡Felicidades <b>${name}</b>! el boleto N°<b>${nBoleto}</b> Ha sido registrado correctamente, le estará llegando un mensaje a su correo en breves.</p>
+			<p>Redireccionando...</p>
+		</div>
+
+		<script>
+			setTimeout(() => {
+				window.location.href = '${process.env.CLIENT}';
+			}, 5000);
+		</script>`
+	);
 });
 
 module.exports = ruta;
