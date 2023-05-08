@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const ruta = require('./rutas.js');
 
 // Middlewares
-app.use(morgan('dev'));
+app.use(morgan('combined'));
 app.use(ruta);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
