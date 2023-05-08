@@ -2,6 +2,10 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const ruta = express.Router();
 
+ruta.get('/', (req, res) => {
+	res.status(200).json('🚀 Server is running.')
+})
+
 ruta.post('/send-email', (req, res) => {
 	const transporter = nodemailer.createTransport({
 		host: 'smtp.gmail.com',
